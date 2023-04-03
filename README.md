@@ -22,15 +22,16 @@ Implement a Landing page that will list all userstories.
 - #### UI:
   - 100% Swift UI
   - MVVM-C Architecture
-- ####Principals and Patterns:
+- #### Principals and Patterns:
   - SOLID conformance:
     - Features are separated into modules.
      - UseCases for business logic.
   - Utilizing IoC and DI.
+  - Delegation pattern for View provider.
   - Coordinator pattern for navigation.
-- ####Dependency Manager:
+- #### Dependency Manager:
   - Swift Package Manager
-- ####Dependencyies:
+- #### Dependencyies:
   - [ViewInspector](https://github.com/nalexn/ViewInspector "ViewInspector"): is a library for unit testing SwiftUI views. It allows for traversing a view hierarchy at runtime providing direct access to the underlying View structs. SwiftUI view is a function of state. We could provide it with the input, but were unable to verify the output, so this library will give us a hand.
   - [Swinject](https://github.com/Swinject/Swinject "Swinject"): Dependency injection framework.
   - [Kingfisher](https://github.com/onevcat/Kingfisher "Kingfisher"): Downloading and caching images from the web.
