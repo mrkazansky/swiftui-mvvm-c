@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Bills on 02/04/2023.
+  
+*/
+
+"home.news" = "News";
+"home.checkin" = "Check In";
+"home.inbox" = "Inbox";
+"home.portfolio" = "Portfolio";
+"home.more" = "More";

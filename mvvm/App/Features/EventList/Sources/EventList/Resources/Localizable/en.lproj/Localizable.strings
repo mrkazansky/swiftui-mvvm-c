@@ -1,0 +1,27 @@
+/* 
+  Localizable.strings
+  
+
+  Created by Bills on 02/04/2023.
+  
+*/
+
+"toolbar.feedback" = "Share Feedback";
+"action.add" = "Add";
+"action.download" = "Download";
+"event.row.defaut.message" = "Upcoming Events";
+//Normal events
+"event.row.normal" = "Events";
+"event.row.message.holder" = "<b>%@</b> created an event <b>%@</b> on <b>%@</b>";
+"event.row.message.simple.holder" = "<b>%@</b> on <b>%@</b>";
+//Check In & Out
+"event.row.checkin" = "Check in & out";
+"event.row.checkin.message.holder" = "<b>%@</b> checked %@ on <b>%@</b>";
+"event.row.checkin.in" = "in";
+"event.row.checkin.out" = "out";
+//Daily health
+"event.row.daily_health" = "Daily health";
+"event.row.daily_health.message.holder" = "<b>%@</b> got new daily health update at <b>%@</b>";
+//Portfolio
+"event.row.portfolio" = "Portfolio";
+
