@@ -8,13 +8,14 @@ Implement a Landing page that will list all userstories.
 - Ability to retrieve actual events data via mock data.
 - Ability to go back and forth between the list and detail screen.
 - Apply pagination mechanism.
+- Good UI animations and consistent UI elements.
 
 ### Non-Functional:
-- Scalability
+- Scalability:
   - Modularity for every main feature
-  - Flexible UI with Delegation pattern for UI and non-UI part
-- Reliability :
-  - Unit tests heavily implemented
+  - Flexible UI with Delegation pattern.
+- Reliability:
+  - Unit tests heavily implemented for UI and non-UI part.
   
 ## Design Decisions:
 
@@ -40,16 +41,18 @@ Implement a Landing page that will list all userstories.
 ## Architecture Design
 ![](https://raw.githubusercontent.com/mrkazansky/swiftui-mvvm-c/master/documents/architect_diagram.png)
 
-### Data Access Layer
+### Data Layer
 Data Access Layer consists of Services. 
 Service provides asynchronous APIs for networking or local data, and pass data as a Publisher from Combine framework. It is accessible and used only by the Usecase in the business layer. We can understand service as Repository pattern.
-In this project, EventListNetworkService stand for Services, which receives requests to get the event list from the given remote endpoint(with faked data).
-EventListNetworkService comforms to` EventListService` such that we can use dependency injection to inject MockEventListService in Usecase in unit tests.
 
-### Business Logic Layer
+In this project, `EventListNetworkService` stand for Services, which receives requests to get the event list from the given remote endpoint (with faked data).
+
+EventListNetworkService comforms to `EventListService` such that we can use dependency injection to inject `MockEventListService` in Usecase in unit tests.
+
+### Business Layer
 Business Logic Layer includes Usecases.
 
-In this project, EventListNetworkUsecase stand for Usecase,which receives requests to download and process the events list from the EventListNetworkService.
+In this project, `EventListNetworkUsecase` stand for Usecase,which receives requests to download and process the events list from the `EventListNetworkService`.
 
 ### Presentation Layer
 Presentation Layer is represented by View and ViewModel
@@ -60,7 +63,7 @@ Views are independent from business logic. Side effects are triggered by the vie
 
 ## Project Structure:
 
-Thanks to Swift Package Manager, I can make project module easier than ever. This project has an overview structure as follows:
+Thanks to Swift Package Manager, I can make project modular easier than ever. This project has an overview structure as follows:
 
 - Main
   -  Packages:
@@ -84,13 +87,13 @@ Thanks to Swift Package Manager, I can make project module easier than ever. Thi
           - Resource: Includes Asset, Localization or any resources file.
           - ViewModel: Includes ViewModel for this feature.
           - View: Includes Viewes for this feature.
-        - Tests:  Unit test suites for home related classes. If needed.
+        - Tests: Unit test suites for home related classes. If needed.
       - Event Detail:
         - Source:
           - Resource: Includes Asset, Localization or any resources file.
           - ViewModel: Includes ViewModel for this feature.
           - View: Includes Viewes for this feature.
-        - Tests:  Unit test suites for event detail related classes.
+        - Tests: Unit test suites for event detail related classes.
       - Event List:
         - Source:
           - Resource: Includes Asset, Localization, Raw JSON or any resources file.
@@ -98,7 +101,7 @@ Thanks to Swift Package Manager, I can make project module easier than ever. Thi
           - Usecase: Includes Usecases for this feature.
           - ViewModel: Includes ViewModel for this feature.
           - View: Includes Viewes & Event Row View Provider for this feature.
-        - Tests:  Unit test suites for event list related classes.
+        - Tests: Unit test suites for event list related classes.
 
 
 ## Build instructions:
