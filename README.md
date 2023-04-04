@@ -12,31 +12,31 @@ Implement a Landing page that will list all userstories.
 
 ### Non-Functional:
 - Scalability:
-  - Modularity for every main feature
+  - Modularity for every main feature.
   - Flexible UI with Delegation pattern.
 - Reliability:
-  - Unit tests heavily implemented for UI and non-UI part.
+  - Unit tests for UI and non-UI part.
   
 ## Design Decisions:
 
-- #### UI:
+### UI:
   - 100% Swift UI
   - MVVM-C Architecture
-- #### Principals and Patterns:
+### Principals and Patterns:
   - SOLID conformance:
     - Features are separated into modules.
      - UseCases for business logic.
   - Utilizing IoC and DI.
   - Delegation pattern for View provider.
   - Coordinator pattern for navigation.
-- #### Dependency Manager:
+### Dependency Manager:
   - Swift Package Manager
-- #### Dependencyies:
+### Dependencies:
   - [ViewInspector](https://github.com/nalexn/ViewInspector "ViewInspector"): is a library for unit testing SwiftUI views. It allows for traversing a view hierarchy at runtime providing direct access to the underlying View structs. SwiftUI view is a function of state. We could provide it with the input, but were unable to verify the output, so this library will give us a hand.
   - [Swinject](https://github.com/Swinject/Swinject "Swinject"): Dependency injection framework.
   - [Kingfisher](https://github.com/onevcat/Kingfisher "Kingfisher"): Downloading and caching images from the web.
   - [AttributedText](https://github.com/Iaenhaall/AttributedText "AttributedText"): HTML text processing, it makes text decoration easier in iOS 14. In iOS 15+ we can use markup for Text in SwiftUI, so we can remove this dependency.
-  - [StatefulTabView](https://github.com/NicholasBellucci/StatefulTabView "StatefulTabView"): Help me customize the bottom tab bar with the built in badge feature, not too important as it's not the main feature
+  - [StatefulTabView](https://github.com/NicholasBellucci/StatefulTabView "StatefulTabView"): Help me customize the bottom tab bar with the built in badge feature, not too important as it's not the main feature.
 
 
 ## Architecture Design
@@ -48,7 +48,7 @@ Service provides asynchronous APIs for networking or local data, and pass data a
 
 In this project, `EventListNetworkService` stand for Services, which receives requests to get the event list from the given remote endpoint (with faked data).
 
-EventListNetworkService comforms to `EventListService` such that we can use dependency injection to inject `MockEventListService` in Usecase in unit tests.
+`EventListNetworkService` comforms to `EventListService` such that we can use dependency injection to inject `MockEventListService` in Usecase in unit tests.
 
 ### Business Layer
 Business Logic Layer includes Usecases.
@@ -56,18 +56,18 @@ Business Logic Layer includes Usecases.
 In this project, `EventListNetworkUsecase` stand for Usecase,which receives requests to download and process the events list from the `EventListNetworkService`.
 
 ### Presentation Layer
-Presentation Layer is represented by View and ViewModel
+Presentation Layer is represented by View and ViewModel.
 
 ViewModels work between Views and Usecases, encapsulating business logic to the Views. ViewModels are downstream subscribers that receive and process whatever is passed from upstream publishers. They are marked as @ObservedObject such that SwiftUI is able to monitor ViewModels for updates and redraw the UI.
 
-Views are independent from business logic. Side effects are triggered by the view lifecycle event onAppear and are forwarded to the corresponding the ViewModel
+Views are independent from business logic. Side effects are triggered by the view lifecycle event onAppear and are forwarded to the corresponding the ViewModel.
 
 ## Project Structure:
 
 Thanks to Swift Package Manager, I can make project modular easier than ever. This project has an overview structure as follows:
 
 - Main
-  -  Packages:
+  - Packages:
     - Utilities: 
       - Sources: Includes extension and utility features, can be used by most modules.
       - Tests: Unit test for extension function. If needed.
