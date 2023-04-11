@@ -13,20 +13,21 @@ extension String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.dateFormat = format
-        if self.contains(".") {
-            // format 2022-07-07T15:26:00.000Z
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        } else if self.contains("Z") {
-            // format 2022-07-07T15:26:00Z
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        } else if (self.contains(" ")) {
-            // format 2022-07-07T15:26:00Z
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        } else {
-            // format 2022-07-07T16:00:00
-            formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        if (format.isEmpty){
+            if self.contains(".") {
+                // format 2022-07-07T15:26:00.000Z
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            } else if self.contains("Z") {
+                // format 2022-07-07T15:26:00Z
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+            } else if (self.contains(" ")) {
+                // format 2022-07-07 15:26:00Z
+                formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            } else {
+                // format 2022-07-07T16:00:00
+                formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            }
         }
-        
         return formatter.date(from: self)
     }
     
